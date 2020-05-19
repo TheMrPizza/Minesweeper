@@ -54,4 +54,11 @@ html, body {
     color: white;
     margin: 0.1em;
     padding: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.block:hover {
+    box-shadow: 0 0 0.4em 0.01em #4183e6;
+    z-index: 1;
 }

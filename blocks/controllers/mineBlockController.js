@@ -10,8 +10,10 @@ class MineBlockController extends BlockController {
     }
 
     onClick() {
-        this.view.expose();
-        this.explodeBoard();
+        if (!this.model.hasFlag) {
+            this.view.expose();
+            this.explodeBoard();
+        }
     }
 }
 

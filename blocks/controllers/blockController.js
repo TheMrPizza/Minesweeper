@@ -9,8 +9,14 @@ class BlockController {
     }
 
     onRightClick() {
-        this.model.hasFlag = true;
-        this.view.markFlag();
+        if (this.model.hasFlag) {
+            this.view.unmarkFlag();
+        }
+        else {
+            this.view.markFlag();
+        }
+
+        this.model.hasFlag = !this.model.hasFlag;
         return false;
     }
 }
