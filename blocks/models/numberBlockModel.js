@@ -1,4 +1,4 @@
-import BlockModel from './blockModel.js';
+import BlockModel from "./blockModel.js";
 
 class NumberBlockModel extends BlockModel {
     constructor(id, number) {

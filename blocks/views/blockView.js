@@ -10,14 +10,6 @@ class BlockView {
     markFlag() {
         this.block.style.backgroundColor = "red";
     }
-
-    expose(minesCount) {
-        this.block.textContent = minesCount;
-    }
-
-    explode() {
-        this.block.style.backgroundColor = "black";
-    }
 }
 
 export default BlockView;
