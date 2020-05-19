@@ -33,7 +33,11 @@ class Board {
     }
     
     initMinesIndexes() {
-        const blocksCopy = Array.from(this.blockIds).flat();
+        const corners = this.getCornerIds();
+        const blocksCopy = Array.from(this.blockIds).flat().filter(blockId => {
+            return !corners.some(corner => corner.equals(blockId));
+        });
+
         const shuffled = blocksCopy.sort(() => 0.5 - Math.random());
         this.minesIds = shuffled.slice(0, this.MINES_COUNT);
     }
@@ -76,20 +80,6 @@ class Board {
                 }
             }
         }
-        // const neighbors = [-1, 0, 1];
-    
-        // for (let row of neighbors) {
-        //     for (let col of neighbors) {
-        //         const currentId = new BlockId(blockId.row + row, blockId.col + col);
-        //         const currentBlock = this.getBlock(currentId);
-        //         if (!(blockId.equals(currentId)) && currentBlock instanceof EmptyBlockController) {
-        //             if (!currentBlock.isExposed) {
-        //                 currentBlock.uncover();
-        //                 this.expandEmptyBlocks(currentId);
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     calcMinesCount(blockId) {
@@ -122,6 +112,17 @@ class Board {
         }
 
         return neighbors;
+    }
+
+    getCornerIds() {
+        const corners = [];
+        for (let row of [0, this.ROWS - 1]) {
+            for (let col of [0, this.COLS - 1]) {
+                corners.push(new BlockId(row, col));
+            }
+        }
+
+        return corners;
     }
 
     isMine(blockId) {
