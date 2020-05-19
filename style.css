@@ -62,3 +62,8 @@ html, body {
     box-shadow: 0 0 0.4em 0.01em #4183e6;
     z-index: 1;
 }
+
+.block div {
+    font-size: 1.5em;
+    font-weight: bold;
+}

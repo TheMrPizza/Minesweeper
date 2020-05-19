@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="628" height="706" viewBox="0 0 628 706">
+<svg xmlns="http://www.w3.org/2000/svg" width="608" height="696" viewBox="0 0 608 696">
   <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -32,10 +32,10 @@
       .cls-1 {
         fill: #d92c2c;
         stroke: #931e1e;
-        stroke-width: 80px;
+        stroke-width: 60px;
         fill-rule: evenodd;
       }
     </style>
   </defs>
-  <path class="cls-1" d="M40,706V40H319l43,83H588V463H359l-45-96H37"/>
+  <path class="cls-1" d="M30,696V30H309l43,83H578V453H349l-45-96H27"/>
 </svg>
