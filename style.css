@@ -49,16 +49,21 @@ html, body {
 .block {
     width: 3em;
     height: 3em;
-    background-color: #0c2c5c;
+    background-color: #799cd2;
     border: none;
     color: white;
     margin: 0.1em;
     padding: 0;
     cursor: pointer;
     transition: 0.2s;
+    -webkit-user-select: none;
 }
 
-.block:hover {
+.hidden-block {
+    background-color: #0c2c5c;
+}
+
+.hidden-block:hover {
     box-shadow: 0 0 0.4em 0.01em #4183e6;
     z-index: 1;
 }

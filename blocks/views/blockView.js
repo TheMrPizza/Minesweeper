@@ -1,7 +1,7 @@
 class BlockView {
     createElement(controller) {
         this.block = document.createElement("button");
-        this.block.className = "block center";
+        this.block.className = "block hidden-block center";
         this.block.onclick = controller.onClick.bind(controller);
         this.block.oncontextmenu = controller.onRightClick.bind(controller);
         return this.block;
@@ -16,6 +16,10 @@ class BlockView {
 
     unmarkFlag() {
         this.block.innerHTML = "";
+    }
+
+    disable() {
+        this.block.disabled = true;
     }
 }
 

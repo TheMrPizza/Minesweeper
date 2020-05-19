@@ -19,6 +19,10 @@ class BlockController {
         this.model.hasFlag = !this.model.hasFlag;
         return false;
     }
+
+    disable() {
+        this.view.disable();
+    }
 }
 
 export default BlockController;
