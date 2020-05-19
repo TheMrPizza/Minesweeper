@@ -1,6 +1,7 @@
-import MineBlockController from '../blocks/controllers/mineBlockController.js';
-import NumberBlockController from '../blocks/controllers/numberBlockController.js';
-import BlockId from '../blockId.js';
+import MineBlockController from "../blocks/controllers/mineBlockController.js";
+import NumberBlockController from "../blocks/controllers/numberBlockController.js";
+import EmptyBlockController from "../blocks/controllers/emptyBlockController.js";
+import BlockId from "../blockId.js";
 
 class Board {
     constructor(rows, cols, minesCount, explodeBoard) {
@@ -52,8 +53,43 @@ class Board {
         if (this.isMine(blockId)) {
             return new MineBlockController(blockId, this.explodeBoard);
         }
+
+        const minesCount = this.calcMinesCount(blockId);
+        if (minesCount == 0) {
+            return new EmptyBlockController(blockId, this.expandEmptyBlocks.bind(this));
+        }
         
-        return new NumberBlockController(blockId, this.calcMinesCount(blockId));
+        return new NumberBlockController(blockId, minesCount);
+    }
+
+    expandEmptyBlocks(blockId) {
+        const neighbors = this.getNeighbors(blockId);
+        for (let currentBlockId of neighbors) {
+            const block = this.getBlock(currentBlockId);
+            if (!block.isExposed) {
+                if (block instanceof EmptyBlockController) {
+                    block.expose();
+                    this.expandEmptyBlocks(currentBlockId);
+                }
+                else if (block instanceof NumberBlockController) {
+                    block.expose();
+                }
+            }
+        }
+        // const neighbors = [-1, 0, 1];
+    
+        // for (let row of neighbors) {
+        //     for (let col of neighbors) {
+        //         const currentId = new BlockId(blockId.row + row, blockId.col + col);
+        //         const currentBlock = this.getBlock(currentId);
+        //         if (!(blockId.equals(currentId)) && currentBlock instanceof EmptyBlockController) {
+        //             if (!currentBlock.isExposed) {
+        //                 currentBlock.uncover();
+        //                 this.expandEmptyBlocks(currentId);
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     calcMinesCount(blockId) {
@@ -72,12 +108,32 @@ class Board {
         return minesCount;
     }
 
+    getNeighbors(blockId) {
+        const neighbors = [];
+
+        const adjacent = [-1, 0, 1];
+        for (let row of adjacent) {
+            for (let col of adjacent) {
+                const currentId = new BlockId(blockId.row + row, blockId.col + col);
+                if (!(blockId.equals(currentId)) && currentId.isValidate(this.ROWS, this.COLS)) {
+                    neighbors.push(currentId);
+                }
+            }
+        }
+
+        return neighbors;
+    }
+
     isMine(blockId) {
         return this.minesIds.some(mine => mine.equals(blockId));
     }
 
     getMines() {
-        return this.minesIds.map(id => this.blocks[id.row][id.col]);
+        return this.minesIds.map(id => this.getBlock(id));
+    }
+
+    getBlock(blockId) {
+        return this.blocks[blockId.row][blockId.col];
     }
 }
 

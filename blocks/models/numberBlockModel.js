@@ -8,7 +8,7 @@ class NumberBlockModel extends BlockModel {
     }
 
     sweep() {
-        console.log("number");
+        
     }
 }
 

@@ -10,7 +10,14 @@ class NumberBlockController extends BlockController {
     onClick() {
         if (!this.model.hasFlag) {
             this.model.sweep();
+            this.expose();
+        }
+    }
+
+    expose() {
+        if (!this.isExposed) {
             this.view.expose(this.model.number);
+            this.isExposed = true;
         }
     }
 }

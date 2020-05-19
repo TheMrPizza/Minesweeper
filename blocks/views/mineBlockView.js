@@ -7,8 +7,7 @@ class MineBlockView extends BlockView {
         image.src = "/resources/mine.svg";
         image.style.width = "80%";
         this.block.appendChild(image);
-        this.block.className = "block center";
-        this.disable();
+        this.uncover();
     }
 }
 

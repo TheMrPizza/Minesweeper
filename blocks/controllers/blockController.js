@@ -2,6 +2,7 @@ class BlockController {
     constructor(model, view) {
         this.model = model;
         this.view = view;
+        this.isExposed = false;
     }
 
     init() {

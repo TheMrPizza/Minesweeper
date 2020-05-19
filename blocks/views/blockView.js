@@ -18,8 +18,14 @@ class BlockView {
         this.block.innerHTML = "";
     }
 
+    uncover() {
+        this.block.className = "block center";
+        this.disable();
+    }
+
     disable() {
         this.block.disabled = true;
+        this.block.style.cursor = "auto";
     }
 }
 

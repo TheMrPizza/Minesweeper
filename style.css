@@ -54,13 +54,14 @@ html, body {
     color: white;
     margin: 0.1em;
     padding: 0;
-    cursor: pointer;
+    cursor: auto;
     transition: 0.2s;
     -webkit-user-select: none;
 }
 
 .hidden-block {
     background-color: #0c2c5c;
+    cursor: pointer;
 }
 
 .hidden-block:hover {

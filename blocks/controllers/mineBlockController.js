@@ -1,13 +1,12 @@
 import BlockController from "./blockController.js";
-import MineBlockModel from "../models/mineBlockModel.js";
 import MineBlockView from "../views/mineBlockView.js";
+import BlockModel from "../models/blockModel.js";
 
 class MineBlockController extends BlockController {
     constructor(id, explodeBoard) {
-        super(new MineBlockModel(id), new MineBlockView());
+        super(new BlockModel(id), new MineBlockView());
 
         this.explodeBoard = explodeBoard;
-        this.isExposed = false;
     }
 
     onClick() {
