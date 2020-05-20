@@ -27,7 +27,7 @@ class BoardController {
         this.view.explodeBoard(mines);
     }
 
-    expandEmptyBlocks(block) {
+    expandEmptyBlocks(block, depth=0) {
         const emptyBlocks = this.model.getExpandableBlocks(block, EmptyBlockController);
         const numberBlocks = this.model.getExpandableBlocks(block, NumberBlockController);
 
@@ -36,7 +36,9 @@ class BoardController {
         });
 
         emptyBlocks.forEach(block => {
-            this.expandEmptyBlocks(block.model);
+            setTimeout(() => {
+                this.expandEmptyBlocks(block.model, depth + 1)
+            }, 5 * depth);
         });
     }
 

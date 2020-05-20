@@ -65,6 +65,10 @@ html, body {
     cursor: pointer;
 }
 
+.hidden-block:focus {
+    outline: 0;
+}
+
 .hidden-block:hover {
     box-shadow: 0 0 0.4em 0.01em #4183e6;
     z-index: 1;

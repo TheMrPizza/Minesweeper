@@ -6,7 +6,7 @@ class NumberBlockView extends BlockView {
         div.textContent = minesCount;
         div.style.color = this.getColor(minesCount);
         this.block.appendChild(div);
-        this.uncover();
+        super.expose();
     }
 
     getColor(minesCount) {

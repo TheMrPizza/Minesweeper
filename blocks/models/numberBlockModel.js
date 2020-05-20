@@ -6,10 +6,6 @@ class NumberBlockModel extends BlockModel {
 
         this.number = number;
     }
-
-    sweep() {
-        
-    }
 }
 
 export default NumberBlockModel;

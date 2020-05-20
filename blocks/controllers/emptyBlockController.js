@@ -10,18 +10,15 @@ class EmptyBlockController extends BlockController {
     }
 
     onClick() {
-        if (!this.model.hasFlag) {
-            this.expose();
-            this.expandEmptyBlocks(this.model);
-            this.notifyClick(false);
-        }
+        super.onClick(() => {
+            this.expandEmptyBlocks(this.model)
+        });
     }
 
     expose() {
-        if (!this.isExposed) {
-            this.view.uncover();
-            this.isExposed = true;
-        }
+        super.expose(() => {
+            this.view.expose();
+        });
     }
 }
 

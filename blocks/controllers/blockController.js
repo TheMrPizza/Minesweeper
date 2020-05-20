@@ -11,6 +11,17 @@ class BlockController {
         return this.view.createElement(this);
     }
 
+    onClick(resultAction) {
+        if (!this.model.hasFlag) {
+            this.expose();
+            this.notifyClick(false);
+
+            if (resultAction !== undefined) {
+                resultAction();
+            }
+        }
+    }
+
     onRightClick() {
         if (this.model.hasFlag) {
             this.view.unmarkFlag();
@@ -22,6 +33,15 @@ class BlockController {
         this.model.hasFlag = !this.model.hasFlag;
         this.notifyClick(true, this.model.hasFlag);
         return false;
+    }
+
+    expose(exposeAction) {
+        if (!this.isExposed) {
+            this.view.unmarkFlag();
+            exposeAction();
+            this.hasFlag = false;
+            this.isExposed = true;
+        }
     }
 
     disable() {

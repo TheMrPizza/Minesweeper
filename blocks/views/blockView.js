@@ -18,7 +18,7 @@ class BlockView {
         this.block.innerHTML = "";
     }
 
-    uncover() {
+    expose() {
         this.block.className = "block center";
         this.disable();
     }

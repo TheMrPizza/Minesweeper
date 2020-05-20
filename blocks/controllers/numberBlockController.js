@@ -8,18 +8,13 @@ class NumberBlockController extends BlockController {
     }
 
     onClick() {
-        if (!this.model.hasFlag) {
-            this.model.sweep();
-            this.expose();
-            this.notifyClick(false);
-        }
+        super.onClick();
     }
 
     expose() {
-        if (!this.isExposed) {
+        super.expose(() => {
             this.view.expose(this.model.number);
-            this.isExposed = true;
-        }
+        });
     }
 }
 
