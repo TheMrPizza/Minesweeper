@@ -19,6 +19,10 @@ class BoardView {
         return rowElement;
     }
 
+    disableAll(blocks) {
+        blocks.forEach(block => block.disable());
+    }
+
     explodeBoard(mineBlocks) {
         for (let i = 0; i < mineBlocks.length; i++) {
             setTimeout(() => mineBlocks[i].expose(), 500 + 500 * Math.sqrt(i));

@@ -12,7 +12,9 @@ class EmptyBlockController extends BlockController {
     onClick() {
         if (!this.model.hasFlag) {
             this.expose();
-            this.expandEmptyBlocks(this.model.id);
+            console.log(new Date().toJSON());
+            this.expandEmptyBlocks(this.model);
+            console.log(new Date().toJSON());
         }
     }
 
