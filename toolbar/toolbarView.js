@@ -2,11 +2,13 @@ class ToolbarView {
     constructor() {
         this.resetButton = document.getElementById("reset");
         this.time = document.getElementById("time-text");
-        this.remainedMines = document.getElementById("mines");
+        this.remainedMines = document.getElementById("mines-text");
     }
 
-    createToolbar(controller) {
-        this.resetButton.onclick = controller.onResetClick;
+    createToolbar(controller, time, minesCount) {
+        this.resetButton.onclick = controller.onResetClick.bind(controller);
+        this.setTime(time);
+        this.setRemainedMines(minesCount);
     }
 
     setTime(time) {

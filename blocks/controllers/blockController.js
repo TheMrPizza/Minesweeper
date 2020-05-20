@@ -20,7 +20,7 @@ class BlockController {
         }
 
         this.model.hasFlag = !this.model.hasFlag;
-        this.notifyClick();
+        this.notifyClick(true, this.model.hasFlag);
         return false;
     }
 

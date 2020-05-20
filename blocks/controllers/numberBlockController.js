@@ -11,7 +11,7 @@ class NumberBlockController extends BlockController {
         if (!this.model.hasFlag) {
             this.model.sweep();
             this.expose();
-            this.notifyClick();
+            this.notifyClick(false);
         }
     }
 

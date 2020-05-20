@@ -13,7 +13,7 @@ class MineBlockController extends BlockController {
         if (!this.model.hasFlag) {
             this.expose();
             this.explodeBoard(this.model.id);
-            this.notifyClick();
+            this.notifyClick(false);
         }
     }
 

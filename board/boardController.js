@@ -4,12 +4,14 @@ import EmptyBlockController from '../blocks/controllers/emptyBlockController.js'
 import NumberBlockController from '../blocks/controllers/numberBlockController.js';
 
 class BoardController {
-    constructor(rows, cols, minesCount, onGameStarted) {
+    constructor(rows, cols, minesCount, onGameStarted, onFlagChanged) {
         this.modelBuilder = new BoardBuilder(rows, cols, minesCount,
             this.explodeBoard.bind(this), this.expandEmptyBlocks.bind(this),
             this.onBlockClick.bind(this));
+
         this.view = new BoardView();
         this.onGameStarted = onGameStarted;
+        this.onFlagChanged = onFlagChanged;
 
         this.hasStarted = false;
     }
@@ -38,10 +40,14 @@ class BoardController {
         });
     }
 
-    onBlockClick() {
+    onBlockClick(isRightClick, hasFlagMarked=false) {
         if (!this.hasStarted) {
             this.onGameStarted();
             this.hasStarted = true;
+        }
+
+        if (isRightClick) {
+            this.onFlagChanged(hasFlagMarked);
         }
     }
 }

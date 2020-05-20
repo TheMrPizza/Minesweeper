@@ -4,6 +4,7 @@ class BoardView {
     }
     
     createBoard(blocks) {
+        this.gameElement.innerHTML = "";
         for (let row of blocks) {
             const rowElement = this.createRow();
             for (let block of row) {

@@ -13,7 +13,7 @@ class EmptyBlockController extends BlockController {
         if (!this.model.hasFlag) {
             this.expose();
             this.expandEmptyBlocks(this.model);
-            this.notifyClick();
+            this.notifyClick(false);
         }
     }
 
