@@ -8,7 +8,19 @@
 </head>
 <body>
     <div class="center screen">
-        <div class="rect toolbar"></div>
+        <div class="rect toolbar center">
+            <div class="inner-toolbar">
+                <img id="reset" class="pointer" src="resources/reset.svg"/>
+                <div class="full-height center">
+                    <div id="time-text">00:00</div>
+                    <img class="margin" src="resources/clock.svg">
+                </div>
+                <div class="full-height center">
+                    <div id="mines-text">10</div>
+                    <img class="margin" src="resources/flag.svg">
+                </div>
+            </div>
+        </div>
         <div class="rect game center" id="game"></div>
     </div>
     <script src="config.js"></script>

@@ -1,7 +1,7 @@
 const appConfig = {
     numbersColors: {
         1: "#2278d9",
-        2: "#3fbc5d",
+        2: "#2e9346",
         3: "#c73b3b",
         4: "#3156cb",
         5: "#b12a2a",

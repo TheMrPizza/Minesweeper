@@ -1,7 +1,9 @@
 class BlockController {
-    constructor(model, view) {
+    constructor(model, view, notifyClick) {
         this.model = model;
         this.view = view;
+        this.notifyClick = notifyClick;
+
         this.isExposed = false;
     }
 
@@ -18,6 +20,7 @@ class BlockController {
         }
 
         this.model.hasFlag = !this.model.hasFlag;
+        this.notifyClick();
         return false;
     }
 

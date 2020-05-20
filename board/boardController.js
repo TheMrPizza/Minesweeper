@@ -4,10 +4,14 @@ import EmptyBlockController from '../blocks/controllers/emptyBlockController.js'
 import NumberBlockController from '../blocks/controllers/numberBlockController.js';
 
 class BoardController {
-    constructor(rows, cols, minesCount) {
+    constructor(rows, cols, minesCount, onGameStarted) {
         this.modelBuilder = new BoardBuilder(rows, cols, minesCount,
-            this.explodeBoard.bind(this), this.expandEmptyBlocks.bind(this));
+            this.explodeBoard.bind(this), this.expandEmptyBlocks.bind(this),
+            this.onBlockClick.bind(this));
         this.view = new BoardView();
+        this.onGameStarted = onGameStarted;
+
+        this.hasStarted = false;
     }
 
     createBoard() {
@@ -32,6 +36,13 @@ class BoardController {
         emptyBlocks.forEach(block => {
             this.expandEmptyBlocks(block.model);
         });
+    }
+
+    onBlockClick() {
+        if (!this.hasStarted) {
+            this.onGameStarted();
+            this.hasStarted = true;
+        }
     }
 }
 

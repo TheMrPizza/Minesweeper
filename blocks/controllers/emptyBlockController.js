@@ -3,8 +3,8 @@ import BlockModel from "../models/blockModel.js";
 import BlockView from "../views/blockView.js";
 
 class EmptyBlockController extends BlockController {
-    constructor(id, expandEmptyBlocks) {
-        super(new BlockModel(id), new BlockView());
+    constructor(id, notifyClick, expandEmptyBlocks) {
+        super(new BlockModel(id), new BlockView(), notifyClick);
 
         this.expandEmptyBlocks = expandEmptyBlocks;
     }
@@ -12,9 +12,8 @@ class EmptyBlockController extends BlockController {
     onClick() {
         if (!this.model.hasFlag) {
             this.expose();
-            console.log(new Date().toJSON());
             this.expandEmptyBlocks(this.model);
-            console.log(new Date().toJSON());
+            this.notifyClick();
         }
     }
 

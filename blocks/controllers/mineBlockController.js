@@ -3,8 +3,8 @@ import MineBlockView from "../views/mineBlockView.js";
 import BlockModel from "../models/blockModel.js";
 
 class MineBlockController extends BlockController {
-    constructor(id, explodeBoard) {
-        super(new BlockModel(id), new MineBlockView());
+    constructor(id, notifyClick, explodeBoard) {
+        super(new BlockModel(id), new MineBlockView(), notifyClick);
 
         this.explodeBoard = explodeBoard;
     }
@@ -13,6 +13,7 @@ class MineBlockController extends BlockController {
         if (!this.model.hasFlag) {
             this.expose();
             this.explodeBoard(this.model.id);
+            this.notifyClick();
         }
     }
 
