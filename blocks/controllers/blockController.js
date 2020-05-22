@@ -1,8 +1,8 @@
 class BlockController {
-    constructor(model, view, notifyClick) {
+    constructor(model, view, notifyChange) {
         this.model = model;
         this.view = view;
-        this.notifyClick = notifyClick;
+        this.notifyChange = notifyChange;
 
         this.isExposed = false;
     }
@@ -14,7 +14,7 @@ class BlockController {
     onClick(resultAction) {
         if (!this.model.hasFlag) {
             this.expose();
-            this.notifyClick(false);
+            this.notifyChange();
 
             if (resultAction !== undefined) {
                 resultAction();
@@ -23,25 +23,31 @@ class BlockController {
     }
 
     onRightClick() {
-        if (this.model.hasFlag) {
-            this.view.unmarkFlag();
-        }
-        else {
-            this.view.markFlag();
-        }
-
-        this.model.hasFlag = !this.model.hasFlag;
-        this.notifyClick(true, this.model.hasFlag);
+        this.changeFlag(!this.model.hasFlag);
         return false;
     }
 
     expose(exposeAction) {
         if (!this.isExposed) {
-            this.view.unmarkFlag();
+            if (this.model.hasFlag) {
+                this.changeFlag(false);
+            }
+            
             exposeAction();
-            this.hasFlag = false;
             this.isExposed = true;
         }
+    }
+
+    changeFlag(value) {
+        if (value) {
+            this.view.markFlag();
+        }
+        else {
+            this.view.unmarkFlag();
+        }
+
+        this.model.hasFlag = value;
+        this.notifyChange(value);
     }
 
     disable() {

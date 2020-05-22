@@ -5,11 +5,11 @@ import EmptyBlockController from "../blocks/controllers/emptyBlockController.js"
 import BlockId from "../blockId.js";
 
 class BoardCreator {
-    constructor(rows, cols, minesCount, explodeBoard, expandEmptyBlocks, notifyClick) {
+    constructor(rows, cols, minesCount, explodeBoard, expandEmptyBlocks, notifyBlockChange) {
         this.board = new BoardModel(rows, cols, minesCount);
         this.explodeBoard = explodeBoard;
         this.expandEmptyBlocks = expandEmptyBlocks;
-        this.notifyClick = notifyClick;
+        this.notifyBlockChange = notifyBlockChange;
 
         this.blockIds = [];
         this.minesIds = [];
@@ -56,15 +56,15 @@ class BoardCreator {
 
     createBlock(blockId) {
         if (this.isMine(blockId)) {
-            return new MineBlockController(blockId, this.notifyClick, this.explodeBoard);
+            return new MineBlockController(blockId, this.notifyBlockChange, this.explodeBoard);
         }
 
         const minesCount = this.calcMinesCount(blockId);
         if (minesCount == 0) {
-            return new EmptyBlockController(blockId, this.notifyClick, this.expandEmptyBlocks);
+            return new EmptyBlockController(blockId, this.notifyBlockChange, this.expandEmptyBlocks);
         }
         
-        return new NumberBlockController(blockId, this.notifyClick, minesCount);
+        return new NumberBlockController(blockId, this.notifyBlockChange, minesCount);
     }
 
     calcMinesCount(blockId) {

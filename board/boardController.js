@@ -7,7 +7,7 @@ class BoardController {
     constructor(rows, cols, minesCount, onGameStarted, onFlagChanged) {
         this.modelBuilder = new BoardBuilder(rows, cols, minesCount,
             this.explodeBoard.bind(this), this.expandEmptyBlocks.bind(this),
-            this.onBlockClick.bind(this));
+            this.onBlockChange.bind(this));
 
         this.view = new BoardView();
         this.onGameStarted = onGameStarted;
@@ -42,14 +42,14 @@ class BoardController {
         });
     }
 
-    onBlockClick(isRightClick, hasFlagMarked=false) {
+    onBlockChange(hasFlag=undefined) {
         if (!this.hasStarted) {
             this.onGameStarted();
             this.hasStarted = true;
         }
 
-        if (isRightClick) {
-            this.onFlagChanged(hasFlagMarked);
+        if (hasFlag !== undefined) {
+            this.onFlagChanged(hasFlag);
         }
     }
 }
