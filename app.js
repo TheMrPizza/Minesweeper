@@ -27,7 +27,7 @@ function createBoard() {
 }
 
 function createToolbar() {
-    toolbar = new ToolbarController(gameMines, createGame);
+    toolbar = new ToolbarController(gameMines, () => createGame(gameRows, gameCols, gameMines));
 }
 
 function onFlagChanged(hasMarked) {

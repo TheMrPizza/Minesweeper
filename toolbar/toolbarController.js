@@ -19,6 +19,11 @@ class ToolbarController {
         }, 1000);
     }
 
+    onHomeClick() {
+        clearInterval(this.interval);
+        this.view.onHomeClick();
+    }
+
     onResetClick() {
         clearInterval(this.interval);
         this.onReset();

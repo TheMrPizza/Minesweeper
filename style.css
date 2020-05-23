@@ -34,22 +34,6 @@ body {
     padding: 1em;
 }
 
-/* .row:first-child > .block:first-child {
-    border-top-left-radius: 1em;
-}
-
-.row:first-child > .block:last-child {
-    border-top-right-radius: 1em;
-}
-
-.row:last-child > .block:first-child {
-    border-bottom-left-radius: 1em;
-}
-
-.row:last-child > .block:last-child {
-    border-bottom-right-radius: 1em;
-} */
-
 .screen {
     flex-direction: column;
 }
@@ -125,16 +109,11 @@ body {
     width: 7em;
 }
 
-/* .inner-toolbar > * {
-    flex-basis: 0;
-    flex-grow: 1;
-} */
-
-/* .full-height .center > * {
-    margin: 1em;
-} */
-
 #remained-mines {
     color: #931e1e;
     font-weight: bold;
+}
+
+.pointer:hover {
+    cursor: pointer;
 }
