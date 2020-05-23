@@ -14,43 +14,6 @@ body {
     justify-content: center;
 }
 
-#home-screen {
-    width: 100%;
-    flex-direction: column;
-}
-
-.logo {
-    width: 60%;
-    filter: drop-shadow(0 0 2px #571515);
-}
-
-.menu {
-    background-color: #571515;
-    margin: 1.5em;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.2em 0;
-    filter: drop-shadow(0 0 2px #571515);
-}
-
-#start-button {
-    background-color: #571515;
-    border: none;
-    border-radius: 2em;
-    padding: 0.5em 1em;
-    font-size: large;
-    color: #d36565;
-    font-weight: bold;
-    transition: 1s;
-}
-
-#start-button:hover {
-    cursor: pointer;
-    background-color: #500c0c;
-}
-
 #game-screen {
     display: none;
 }
@@ -71,7 +34,7 @@ body {
     padding: 1em;
 }
 
-.row:first-child > .block:first-child {
+/* .row:first-child > .block:first-child {
     border-top-left-radius: 1em;
 }
 
@@ -85,7 +48,7 @@ body {
 
 .row:last-child > .block:last-child {
     border-bottom-right-radius: 1em;
-}
+} */
 
 .screen {
     flex-direction: column;
@@ -100,7 +63,7 @@ body {
 .block {
     width: 3em;
     height: 3em;
-    background-color: #799cd2;
+    background-color: #ea6666;
     border: none;
     color: white;
     margin: 0.1em;
@@ -111,7 +74,7 @@ body {
 }
 
 .hidden-block {
-    background-color: #0c2c5c;
+    background-color: #bc2e2e;
     cursor: pointer;
 }
 
@@ -120,7 +83,7 @@ body {
 }
 
 .hidden-block:hover {
-    box-shadow: 0 0 0.4em 0.01em #4183e6;
+    box-shadow: 0 0 0.4em 0.01em #b12020;
     z-index: 1;
 }
 
@@ -131,10 +94,10 @@ body {
 
 .inner-toolbar {
     height: 75%;
-    width: 75%;
+    width: 95%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: 1.4em;
 }
 
@@ -142,8 +105,12 @@ body {
     height: 100%;
 }
 
+.toolbar-item {
+    margin: 0.3em;
+}
+
 .inner-toolbar img {
-    height: 80%;
+    height: 75%;
 }
 
 .margin {
@@ -158,53 +125,16 @@ body {
     width: 7em;
 }
 
-.inner-toolbar > * {
+/* .inner-toolbar > * {
     flex-basis: 0;
     flex-grow: 1;
-}
+} */
+
+/* .full-height .center > * {
+    margin: 1em;
+} */
 
 #remained-mines {
     color: #931e1e;
-    font-weight: bold;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.slider {
-    -webkit-appearance: none;
-    height: 0.6em;
-    border-radius: 2em;
-    background: #7b3737;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity .2s;
-}
-
-.slider:hover {
-    opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 1.2em;
-    height: 1.2em;
-    border-radius: 2em;
-    background: #d92c2c;
-    cursor: pointer;
-}
-
-::placeholder {
-    color: white;
-    font-weight: bold;
-}
-
-.grid {
-    display: grid;
-}
-
-#rows-text, #cols-text, #mines-text {
     font-weight: bold;
 }

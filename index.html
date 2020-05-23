@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minesweeper</title>
     <link rel="icon" href="resources/flag.svg">
+    <link rel="stylesheet" type="text/css" href="home.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -29,14 +30,19 @@
     <div id="game-screen">
         <div class="rect toolbar center">
             <div class="inner-toolbar">
-                <img id="reset" class="pointer" src="resources/reset.svg"/>
                 <div class="full-height center">
-                    <div id="time-text">00:00</div>
-                    <img class="margin" src="resources/clock.svg">
+                    <img id="home" class="toolbar-item pointer" src="resources/white-home.svg"/>
+                    <img id="reset" class="toolbar-item pointer" src="resources/white-reset.svg"/>
                 </div>
                 <div class="full-height center">
-                    <div id="remained-mines">10</div>
-                    <img class="margin" src="resources/flag.svg">
+                    <div class="full-height center toolbar-item">
+                        <div id="time-text">00:00</div>
+                        <img class="margin" src="resources/clock.svg">
+                    </div>
+                    <div class="full-height center toolbar-item">
+                        <div id="remained-mines">10</div>
+                        <img class="margin" src="resources/flag.svg">
+                    </div>
                 </div>
             </div>
         </div>
