@@ -1,26 +1,33 @@
-import BoardController from './board/boardController.js';
-import ToolbarController from './toolbar/toolbarController.js';
+import BoardController from "./board/boardController.js";
+import ToolbarController from "./toolbar/toolbarController.js";
 
-let rows = 9;
-let cols = 9;
-let minesCount = 10;
+let gameRows = 9;
+let gameCols = 9;
+let gameMines = 10;
 
 let board;
 let toolbar;
 
-function createGame() {
+window.createGame = (rows, cols, mines) => {
+    init(rows, cols, mines);
     createBoard();
     createToolbar();
     board.createBoard();
     toolbar.init();
 }
 
+function init(rows, cols, mines) {
+    gameRows = rows;
+    gameCols = cols;
+    gameMines = mines;
+}
+
 function createBoard() {
-    board = new BoardController(rows, cols, minesCount, onGameStarted, onFlagChanged);
+    board = new BoardController(gameRows, gameCols, gameMines, onGameStarted, onFlagChanged);
 }
 
 function createToolbar() {
-    toolbar = new ToolbarController(minesCount, createGame);
+    toolbar = new ToolbarController(gameMines, createGame);
 }
 
 function onFlagChanged(hasMarked) {
@@ -29,8 +36,4 @@ function onFlagChanged(hasMarked) {
 
 function onGameStarted() {
     toolbar.onGameStarted();
-}
-
-window.onload = () => {
-    createGame();
 }

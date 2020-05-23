@@ -1,16 +1,62 @@
 html, body {
-    display: grid;
-    align-items: center;
-    justify-content: center;
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #0e335e;
+    background: linear-gradient(to right, #d92c2c, #931e1e);
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    color: #d36565;
+    font-size: large;
+}
+
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-screen {
+    width: 100%;
+    flex-direction: column;
+}
+
+.logo {
+    width: 60%;
+    filter: drop-shadow(0 0 2px #571515);
+}
+
+.menu {
+    background-color: #571515;
+    margin: 1.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2em 0;
+    filter: drop-shadow(0 0 2px #571515);
+}
+
+#start-button {
+    background-color: #571515;
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    font-size: large;
+    color: #d36565;
+    font-weight: bold;
+    transition: 1s;
+}
+
+#start-button:hover {
+    cursor: pointer;
+    background-color: #500c0c;
+}
+
+#game-screen {
+    display: none;
 }
 
 .rect {
-    background-color: #154c8c;
+    background-color: #571515;
     border-radius: 1em;
     margin: 0.4em auto;
 }
@@ -96,7 +142,7 @@ html, body {
     height: 100%;
 }
 
-img {
+.inner-toolbar img {
     height: 80%;
 }
 
@@ -108,16 +154,57 @@ img {
     color: white;
 }
 
+.menu-text {
+    width: 7em;
+}
+
 .inner-toolbar > * {
     flex-basis: 0;
     flex-grow: 1;
 }
 
-#mines-text {
+#remained-mines {
     color: #931e1e;
     font-weight: bold;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 0.6em;
+    border-radius: 2em;
+    background: #7b3737;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 2em;
+    background: #d92c2c;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: white;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+}
+
+#rows-text, #cols-text, #mines-text {
+    font-weight: bold;
 }
