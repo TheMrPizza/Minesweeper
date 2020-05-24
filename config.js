@@ -8,5 +8,10 @@ const appConfig = {
         6: "#2b96a3",
         7: "#444444",
         8: "#8d8d8d"
+    },
+    timeColors: {
+        neutral: "white",
+        win: "#50931e",
+        lose: "#931e1e"
     }
 }

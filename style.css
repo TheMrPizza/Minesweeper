@@ -18,10 +18,9 @@ body {
     display: none;
 }
 
-.rect {
-    background-color: #571515;
-    border-radius: 1em;
-    margin: 0.4em auto;
+.game {
+    flex-direction: column;
+    padding: 1em;
 }
 
 .toolbar {
@@ -29,19 +28,21 @@ body {
     height: 2em;
 }
 
-.game {
-    flex-direction: column;
-    padding: 1em;
+.toolbar-item {
+    margin: 0.3em;
 }
 
-.screen {
-    flex-direction: column;
-}
-
-.center {
+.inner-toolbar {
+    height: 75%;
+    width: 95%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    font-size: 1.4em;
+}
+
+.inner-toolbar img {
+    height: 75%;
 }
 
 .block {
@@ -55,6 +56,11 @@ body {
     cursor: auto;
     transition: 0.2s;
     -webkit-user-select: none;
+}
+
+.block div {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .hidden-block {
@@ -71,30 +77,20 @@ body {
     z-index: 1;
 }
 
-.block div {
-    font-size: 1.2em;
-    font-weight: bold;
+.rect {
+    background-color: #571515;
+    border-radius: 1em;
+    margin: 0.4em auto;
 }
 
-.inner-toolbar {
-    height: 75%;
-    width: 95%;
+.center {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 1.4em;
+    justify-content: center;
 }
 
 .full-height {
     height: 100%;
-}
-
-.toolbar-item {
-    margin: 0.3em;
-}
-
-.inner-toolbar img {
-    height: 75%;
 }
 
 .margin {
@@ -104,10 +100,6 @@ body {
 #time-text {
     color: white;
     transition: 0.2s;
-}
-
-.menu-text {
-    width: 7em;
 }
 
 #remained-mines {

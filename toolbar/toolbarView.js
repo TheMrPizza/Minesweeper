@@ -15,7 +15,7 @@ class ToolbarView {
 
     initTime() {
         this.setTime(new Date(0));
-        this.time.style.color = "white";
+        this.time.style.color = appConfig.timeColors.neutral;
     }
 
     setTime(time) {
@@ -30,10 +30,10 @@ class ToolbarView {
 
     stopTime(isWin) {
         if (isWin) {
-            this.time.style.color = "#50931e";
+            this.time.style.color = appConfig.timeColors.win;
         }
         else {
-            this.time.style.color = "#931e1e";
+            this.time.style.color = appConfig.timeColors.lose;
         }
     }
 

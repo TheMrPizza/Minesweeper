@@ -19,6 +19,10 @@
     filter: drop-shadow(0 0 2px #571515);
 }
 
+.menu-text {
+    width: 7em;
+}
+
 #rows-text, #cols-text, #mines-text {
     font-weight: bold;
 }
