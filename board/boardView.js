@@ -29,6 +29,13 @@ class BoardView {
             setTimeout(() => mineBlocks[i].expose(), 500 + 500 * Math.sqrt(i));
         }
     }
+
+    winBoard(mineBlocks) {
+        console.log(mineBlocks);
+        for (let i = 0; i < mineBlocks.length; i++) {
+            setTimeout(() => mineBlocks[i].markWinFlag(), 500 + 500 * Math.sqrt(i));
+        }
+    }
 }
 
 export default BoardView;

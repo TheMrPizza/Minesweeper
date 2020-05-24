@@ -6,11 +6,16 @@ class ToolbarView {
         this.remainedMines = document.getElementById("remained-mines");
     }
 
-    createToolbar(controller, time, minesCount) {
+    createToolbar(controller, minesCount) {
         this.homeButton.onclick = controller.onHomeClick.bind(controller);
         this.resetButton.onclick = controller.onResetClick.bind(controller);
-        this.setTime(time);
+        this.initTime();
         this.setRemainedMines(minesCount);
+    }
+
+    initTime() {
+        this.setTime(new Date(0));
+        this.time.style.color = "white";
     }
 
     setTime(time) {
@@ -21,6 +26,15 @@ class ToolbarView {
 
     setRemainedMines(count) {
         this.remainedMines.textContent = count;
+    }
+
+    stopTime(isWin) {
+        if (isWin) {
+            this.time.style.color = "#50931e";
+        }
+        else {
+            this.time.style.color = "#931e1e";
+        }
     }
 
     onHomeClick() {

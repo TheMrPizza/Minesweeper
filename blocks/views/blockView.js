@@ -7,9 +7,10 @@ class BlockView {
         return this.block;
     }
 
-    markFlag() {
+    markFlag(isWinFlag=false) {
+        this.unmarkFlag();
         const image = document.createElement("img");
-        image.src = "/resources/flag.svg";
+        image.src = isWinFlag ? "/resources/green-flag.svg" : "/resources/flag.svg";
         image.style.width = "60%";
         this.block.appendChild(image);
     }

@@ -9,7 +9,7 @@ class ToolbarController {
     }
 
     init() {
-        this.view.createToolbar(this, new Date(0), this.model.remainedMines);
+        this.view.createToolbar(this, this.model.remainedMines);
     }
 
     onGameStarted() {
@@ -17,6 +17,11 @@ class ToolbarController {
         this.interval = setInterval(() => {
             this.view.setTime(this.model.getTotalTime());
         }, 1000);
+    }
+
+    onGameFinished(isWin) {
+        clearInterval(this.interval);
+        this.view.stopTime(isWin);
     }
 
     onHomeClick() {

@@ -47,7 +47,7 @@ body {
 .block {
     width: 3em;
     height: 3em;
-    background-color: #ea6666;
+    background-color: #d86565;
     border: none;
     color: white;
     margin: 0.1em;
@@ -58,7 +58,7 @@ body {
 }
 
 .hidden-block {
-    background-color: #bc2e2e;
+    background-color: #ce4444;
     cursor: pointer;
 }
 
@@ -103,6 +103,7 @@ body {
 
 #time-text {
     color: white;
+    transition: 0.2s;
 }
 
 .menu-text {

@@ -9,11 +9,9 @@ class BoardModel {
         this.blocks = [];
     }
         
-    getRemainedMines(mineIds, explodedMineId) {
+    getRemainedMines(mineIds) {
         const mines = this.getBlocks(mineIds);
-        return mines.filter(mine => {
-            return !mine.model.id.equals(explodedMineId) && !mine.model.hasFlag;
-        });
+        return mines.filter(mine => !mine.model.hasFlag);
     }
 
     getExpandableBlocks(block, blocksType) {

@@ -23,7 +23,8 @@ function init(rows, cols, mines) {
 }
 
 function createBoard() {
-    board = new BoardController(gameRows, gameCols, gameMines, onGameStarted, onFlagChanged);
+    board = new BoardController(gameRows, gameCols, gameMines,
+        onGameStarted, onGameFinished, onFlagChanged);
 }
 
 function createToolbar() {
@@ -36,4 +37,8 @@ function onFlagChanged(hasMarked) {
 
 function onGameStarted() {
     toolbar.onGameStarted();
+}
+
+function onGameFinished(isWin) {
+    toolbar.onGameFinished(isWin);
 }

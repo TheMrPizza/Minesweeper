@@ -38,6 +38,10 @@ class BlockController {
         }
     }
 
+    markWinFlag() {
+        this.view.markFlag(true, true);
+    }
+
     changeFlag(value) {
         if (value) {
             this.view.markFlag();
